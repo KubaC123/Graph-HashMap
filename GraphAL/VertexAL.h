@@ -1,18 +1,18 @@
 //
-//  Vertex.h
+//  VertexAL.h
 //  GraphAL
 //
 //  Created by Jakub Cichy on 05/05/2019.
 //  Copyright © 2019 Jakub Cichy. All rights reserved.
 //
 
-#ifndef Vertex_h
-#define Vertex_h
+#ifndef VertexAL_h
+#define VertexAL_h
 
 #include "Edge.h"
 
 template<typename E>
-class Vertex {
+class VertexAL {
     
     int number;
     E element;
@@ -20,16 +20,16 @@ class Vertex {
     
 public:
     
-    Vertex() { }
+    VertexAL() { }
     
-    Vertex(int number) :
+    VertexAL(int number) :
     number(number) { }
     
-    Vertex(int number, E element) :
+    VertexAL(int number, E element) :
     number(number),
     element(element) { }
     
-    ~Vertex() { }
+    ~VertexAL() { }
     
     int getNumber() const {
         return number;
@@ -77,4 +77,4 @@ public:
 };
 
 
-#endif /* Vertex_h */
+#endif /* VertexAL_h */

@@ -101,7 +101,7 @@ public:
     V front() const {
         if(size == 0) {
             std::cout << "List is empty!" << std::endl;
-            return nullptr;
+            exit(1);
         }
         return head->getValue();
     }
@@ -112,6 +112,18 @@ public:
             return nullptr;
         }
         return tail->getValue();
+    }
+    
+    V get(int nodeNr) {
+        Node<V> *current = head;
+        int count = 0;
+        while(current != nullptr) {
+            if(count == nodeNr)
+                return current->getValue();
+            count++;
+            current = current->getNext();
+        }
+        assert(0);
     }
     
     bool isPresent(V value) {

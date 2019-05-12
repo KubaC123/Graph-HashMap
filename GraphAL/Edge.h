@@ -28,7 +28,7 @@ public:
     
     ~Edge() { }
     
-    int getFisrtVertexNr() const {
+    int getFirstVertexNr() const {
         return firstVertexNr;
     }
     
@@ -54,18 +54,18 @@ public:
     
     bool operator == (const Edge& edge) {
         return
-        (this->firstVertexNr == edge.getFisrtVertexNr() && this->secondVertexNr == edge.getSecondVertexNr()) ||
-        (this->firstVertexNr == edge.getSecondVertexNr() && this->secondVertexNr == edge.getFisrtVertexNr());
+        (this->firstVertexNr == edge.getFirstVertexNr() && this->secondVertexNr == edge.getSecondVertexNr()) ||
+        (this->firstVertexNr == edge.getSecondVertexNr() && this->secondVertexNr == edge.getFirstVertexNr());
     }
     
     bool operator != (const Edge& edge) {
-        return this->firstVertexNr != edge.getFisrtVertexNr() || this->secondVertexNr != edge.getSecondVertexNr();
+        return this->firstVertexNr != edge.getFirstVertexNr() || this->secondVertexNr != edge.getSecondVertexNr();
     }
     
 };
 
 std::ostream& operator << (std::ostream &os, const Edge& edge) {
-    os << "(" << edge.getFisrtVertexNr() << "->" << edge.getSecondVertexNr() << ",cost:" << edge.getCost() << ") ";
+    os << "(" << edge.getFirstVertexNr() << "->" << edge.getSecondVertexNr() << ",cost:" << edge.getCost() << ") ";
     return os;
 }
 

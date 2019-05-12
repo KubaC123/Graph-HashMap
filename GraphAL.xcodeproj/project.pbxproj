@@ -25,6 +25,22 @@
 /* Begin PBXFileReference section */
 		29211EA7227F0F980036B148 /* GraphAL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GraphAL; sourceTree = BUILT_PRODUCTS_DIR; };
 		29211EAA227F0F980036B148 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		29211EB1227F0FA70036B148 /* VertexAL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertexAL.h; sourceTree = "<group>"; };
+		29211EB2227F0FB10036B148 /* List.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		29211EB3227F0FBF0036B148 /* Edge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Edge.h; sourceTree = "<group>"; };
+		29211EB4227F0FCF0036B148 /* GraphAL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphAL.h; sourceTree = "<group>"; };
+		29211EB5227F29700036B148 /* Node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		29E29BF32287297000BDB73B /* EdgeQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EdgeQueue.h; sourceTree = "<group>"; };
+		29E29BF422872D7000BDB73B /* DSNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSNode.h; sourceTree = "<group>"; };
+		29E29BF522872E2A00BDB73B /* DSStructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSStructure.h; sourceTree = "<group>"; };
+		29E29BF6228738A400BDB73B /* TreeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
+		29E29BF722873E1B00BDB73B /* MinimalSpanningTree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MinimalSpanningTree.h; sourceTree = "<group>"; };
+		29E29BF82287444300BDB73B /* Kruskal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kruskal.h; sourceTree = "<group>"; };
+		29F7201722884A2400ED4995 /* Menu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
+		29F7201822884AA600ED4995 /* GraphAM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphAM.h; sourceTree = "<group>"; };
+		29F7201922884DC800ED4995 /* VertexAM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertexAM.h; sourceTree = "<group>"; };
+		29F7201A2288555A00ED4995 /* graph_data.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = graph_data.txt; sourceTree = "<group>"; };
+		29F7201B2288585000ED4995 /* RandomDataGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandomDataGenerator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +74,22 @@
 			isa = PBXGroup;
 			children = (
 				29211EAA227F0F980036B148 /* main.cpp */,
+				29211EB1227F0FA70036B148 /* VertexAL.h */,
+				29211EB2227F0FB10036B148 /* List.h */,
+				29211EB3227F0FBF0036B148 /* Edge.h */,
+				29211EB4227F0FCF0036B148 /* GraphAL.h */,
+				29211EB5227F29700036B148 /* Node.h */,
+				29E29BF32287297000BDB73B /* EdgeQueue.h */,
+				29E29BF422872D7000BDB73B /* DSNode.h */,
+				29E29BF522872E2A00BDB73B /* DSStructure.h */,
+				29E29BF6228738A400BDB73B /* TreeNode.h */,
+				29E29BF722873E1B00BDB73B /* MinimalSpanningTree.h */,
+				29E29BF82287444300BDB73B /* Kruskal.h */,
+				29F7201722884A2400ED4995 /* Menu.h */,
+				29F7201822884AA600ED4995 /* GraphAM.h */,
+				29F7201922884DC800ED4995 /* VertexAM.h */,
+				29F7201A2288555A00ED4995 /* graph_data.txt */,
+				29F7201B2288585000ED4995 /* RandomDataGenerator.h */,
 			);
 			path = GraphAL;
 			sourceTree = "<group>";
