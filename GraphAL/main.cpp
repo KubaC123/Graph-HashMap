@@ -10,7 +10,7 @@
 
 int main(int argc, const char * argv[]) {
     
-    Menu<int> menu;
+    Menu<int, int, int> menu;
     menu.start();
     
     return 0;

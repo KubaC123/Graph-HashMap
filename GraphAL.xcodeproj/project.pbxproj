@@ -23,6 +23,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		290B9DDE228AB3DF00760438 /* HashMapUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashMapUtil.h; sourceTree = "<group>"; };
+		290B9DDF228AE18000760438 /* HashMapDH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashMapDH.h; sourceTree = "<group>"; };
+		290B9DE0228AE36E00760438 /* HashNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashNode.h; sourceTree = "<group>"; };
+		290B9DE1228AFF3900760438 /* HashNodeL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashNodeL.h; sourceTree = "<group>"; };
+		290B9DE2228B000E00760438 /* HashMapL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashMapL.h; sourceTree = "<group>"; };
 		29211EA7227F0F980036B148 /* GraphAL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GraphAL; sourceTree = BUILT_PRODUCTS_DIR; };
 		29211EAA227F0F980036B148 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		29211EB1227F0FA70036B148 /* VertexAL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertexAL.h; sourceTree = "<group>"; };
@@ -30,6 +35,7 @@
 		29211EB3227F0FBF0036B148 /* Edge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Edge.h; sourceTree = "<group>"; };
 		29211EB4227F0FCF0036B148 /* GraphAL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphAL.h; sourceTree = "<group>"; };
 		29211EB5227F29700036B148 /* Node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		29C53EA6228A0A0F00C3BBAD /* HashMapLP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashMapLP.h; sourceTree = "<group>"; };
 		29E29BF32287297000BDB73B /* EdgeQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EdgeQueue.h; sourceTree = "<group>"; };
 		29E29BF422872D7000BDB73B /* DSNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSNode.h; sourceTree = "<group>"; };
 		29E29BF522872E2A00BDB73B /* DSStructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSStructure.h; sourceTree = "<group>"; };
@@ -90,6 +96,12 @@
 				29F7201922884DC800ED4995 /* VertexAM.h */,
 				29F7201A2288555A00ED4995 /* graph_data.txt */,
 				29F7201B2288585000ED4995 /* RandomDataGenerator.h */,
+				29C53EA6228A0A0F00C3BBAD /* HashMapLP.h */,
+				290B9DDE228AB3DF00760438 /* HashMapUtil.h */,
+				290B9DDF228AE18000760438 /* HashMapDH.h */,
+				290B9DE0228AE36E00760438 /* HashNode.h */,
+				290B9DE1228AFF3900760438 /* HashNodeL.h */,
+				290B9DE2228B000E00760438 /* HashMapL.h */,
 			);
 			path = GraphAL;
 			sourceTree = "<group>";

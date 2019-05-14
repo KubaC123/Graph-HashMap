@@ -13,10 +13,15 @@
 #include "GraphAL.h"
 #include "GraphAM.h"
 #include "RandomDataGenerator.h"
+#include "HashMapLP.h"
+#include "HashMapUtil.h"
+#include "HashMapDH.h"
+#include "HashMapL.h"
+#include "List.h"
 
 #define FILENAME "graph_data.txt"
 
-template<typename E>
+template<typename E, typename K, typename V>
 class Menu {
     
     GraphAL<E> readGraphALFromFile(int givenNumberOfVertices) {
@@ -121,7 +126,7 @@ class Menu {
     
     void graphAMMenu(GraphAM<E> graphAM) {
         int choice, vertexNr, element, startVertexNr, endVertexNr, edgeCost;
-        printBasicMenu();
+        printBasicGraphMenu();
         do {
             std::cin >> choice;
             if(choice == 7)
@@ -130,7 +135,7 @@ class Menu {
                 switch (choice) {
                     case 1:
                         graphAM.printVertices();
-                        printBasicMenu();
+                        printBasicGraphMenu();
                         break;
                         
                     case 2:
@@ -139,7 +144,7 @@ class Menu {
                         std::cout << "Enter element to insert: ";
                         std::cin >> element;
                         graphAM.insertElementToVertex(vertexNr, element);
-                        printBasicMenu();
+                        printBasicGraphMenu();
                         break;
                         
                     case 3:
@@ -150,7 +155,7 @@ class Menu {
                         std::cout << "Enter cost: ";
                         std::cin >> edgeCost;
                         graphAM.addEdge(startVertexNr, endVertexNr, edgeCost);
-                        printBasicMenu();
+                        printBasicGraphMenu();
                         break;
                         
                     case 4:
@@ -159,12 +164,12 @@ class Menu {
                         std::cout << "Enter second vertex nr: ";
                         std::cin >> endVertexNr;
                         graphAM.removeEdge(startVertexNr, endVertexNr);
-                        printBasicMenu();
+                        printBasicGraphMenu();
                         break;
                         
                     case 5:
                         graphAM.printAdjacencyMatrix();
-                        printBasicMenu();
+                        printBasicGraphMenu();
                         break;
                         
                     case 6:
@@ -175,7 +180,7 @@ class Menu {
                         if(graphAM.areAdjacent(startVertexNr, endVertexNr)) {
                             std::cout << "Vertex " << startVertexNr << " and " << endVertexNr << " are adjacent" << std::endl;
                         } else std::cout << "Vertex " << startVertexNr << " and " << endVertexNr << " are not adjacent" << std::endl;
-                        printBasicMenu();
+                        printBasicGraphMenu();
                         break;
                         
                     case 7:
@@ -191,7 +196,7 @@ class Menu {
     
     void graphALMenu(GraphAL<E> graphAL) {
         int choice, vertexNr, element, startVertexNr, endVertexNr, edgeCost;
-        printBasicMenu();
+        printBasicGraphMenu();
         do {
             std::cin >> choice;
             if(choice == 7)
@@ -200,7 +205,7 @@ class Menu {
                 switch (choice) {
                     case 1:
                         graphAL.printVertices();
-                        printBasicMenu();
+                        printBasicGraphMenu();
                         break;
                         
                     case 2:
@@ -209,7 +214,7 @@ class Menu {
                         std::cout << "Enter element to insert: ";
                         std::cin >> element;
                         graphAL.insertElementToVertex(vertexNr, element);
-                        printBasicMenu();
+                        printBasicGraphMenu();
                         break;
                         
                     case 3:
@@ -220,7 +225,7 @@ class Menu {
                         std::cout << "Enter cost: ";
                         std::cin >> edgeCost;
                         graphAL.addEdge(startVertexNr, endVertexNr, edgeCost);
-                        printBasicMenu();
+                        printBasicGraphMenu();
                         break;
                         
                     case 4:
@@ -229,12 +234,12 @@ class Menu {
                         std::cout << "Enter second vertex nr: ";
                         std::cin >> endVertexNr;
                         graphAL.removeEdge(startVertexNr, endVertexNr);
-                        printBasicMenu();
+                        printBasicGraphMenu();
                         break;
                         
                     case 5:
                         graphAL.printEdges();
-                        printBasicMenu();
+                        printBasicGraphMenu();
                         break;
                         
                     case 6:
@@ -245,7 +250,7 @@ class Menu {
                         if(graphAL.areAdjacent(startVertexNr, endVertexNr)) {
                             std::cout << "Vertex " << startVertexNr << " and " << endVertexNr << " are adjacent" << std::endl;
                         } else std::cout << "Vertex " << startVertexNr << " and " << endVertexNr << " are not adjacent" << std::endl;
-                        printBasicMenu();
+                        printBasicGraphMenu();
                         break;
                         
                     case 7:
@@ -253,13 +258,14 @@ class Menu {
                         break;
          
                     default:
+                        printBasicHashMapMenu();
                         break;
                 }
             }
         } while(choice != 7);
     }
     
-    void printBasicMenu() {
+    void printBasicGraphMenu() {
         std::cout << "What you want to do?" << std::endl;
         std::cout << "1 - print vertices" << std::endl;
         std::cout << "2 - insert element to vertex" << std::endl;
@@ -268,6 +274,319 @@ class Menu {
         std::cout << "5 - print edges/adjacencyMatrix" << std::endl;
         std::cout << "6 - check if vertices are adjacent" << std::endl;
         std::cout << "7 - exit" << std::endl;
+    }
+    
+    void testHashMapLP() {
+        HashMapUtil hashMapUtil;
+        int capacity = 0;
+        while(1) {
+            std::cout << "Enter map capacity (it must be a prime number) or 0 to exit: ";
+            std::cin >> capacity;
+            if(hashMapUtil.isPrime(capacity))
+                break;
+            else if(capacity == 0)
+                exit(1);
+            else
+                std::cout << capacity << " is not a prime number" << std::endl;
+        }
+        HashMapLP<int, int> hashMapLP(capacity);
+        hashMapLPMenu(hashMapLP);
+    }
+    
+    void testHashMapDH() {
+        HashMapUtil hashMapUtil;
+        int capacity = 0;
+        while(1) {
+            std::cout << "Enter map capacity (it must be a prime number) or 0 to exit: ";
+            std::cin >> capacity;
+            if(hashMapUtil.isPrime(capacity))
+                break;
+            else if(capacity == 0)
+                exit(1);
+            else
+                std::cout << capacity << " is not a prime number" << std::endl;
+        }
+        HashMapDH<int, int> hashMapDH(capacity);
+        hashMapDHMenu(hashMapDH);
+    }
+    
+    void testHashMapL() {
+        HashMapUtil hashMapUtil;
+        int capacity = 0;
+        while(1) {
+            std::cout << "Enter map capacity (it must be a prime number) or 0 to exit: ";
+            std::cin >> capacity;
+            if(hashMapUtil.isPrime(capacity))
+                break;
+            else if(capacity == 0)
+                exit(1);
+            else
+                std::cout << capacity << " is not a prime number" << std::endl;
+        }
+        HashMapL<int, int> hashMapL(capacity);
+        hashMapLMenu(hashMapL);
+    }
+    
+    void hashMapDHMenu(HashMapDH<K,V> hashMapDH) {
+        std::cout << "Filling half of the hash map with random values..." << std::endl;
+        int mapCapacity = hashMapDH.getCapacity();
+        int insertedValues[mapCapacity];
+        int insertedKeys[mapCapacity];
+
+        for(int i=0; i<mapCapacity/2; i++) {
+            insertedKeys[i] = -1;
+            insertedValues[i] = -1;
+        }
+
+        for(int i=0; i<mapCapacity/2; i++) {
+            int key, value;
+            do {
+                key = rand() % mapCapacity;
+            } while(insertedKeys[key] != -1);
+            do {
+                value = rand() % mapCapacity;
+            } while(insertedValues[value] != -1);
+            std::cout << "Inserting (" << key << "," << value << ") pair..." << std::endl;
+            hashMapDH.put(key, value);
+
+            insertedKeys[key] = 1;
+            insertedValues[value] = 1;
+        }
+        std::cout << " --------------------------- " << std::endl;
+        int choice = 0;
+        printBasicHashMapMenu();
+        do {
+            std::cin >> choice;
+            switch(choice) {
+                case 1:
+                    hashMapDH.print();
+                    printBasicHashMapMenu();
+                    break;
+                case 2:
+                    int key, value;
+                    std::cout << "Enter key: ";
+                    std::cin >> key;
+                    std::cout << "Enter value: ";
+                    std::cin >> value;
+                    hashMapDH.put(key, value);
+                    printBasicHashMapMenu();
+                    break;
+                    
+                case 3:
+                    int keyToRemove;
+                    std::cout << "Insert key to remove: ";
+                    std::cin >> keyToRemove;
+                    if(hashMapDH.get(keyToRemove) == -1) {
+                        std::cout << "No such key in map" << std::endl;
+                    } else {
+                        hashMapDH.remove(keyToRemove);
+                        std::cout << "Removed" << std::endl;
+                    }
+                    printBasicHashMapMenu();
+                    break;
+                    
+                case 4: {
+                    int keyToGet;
+                    std::cout << "Enter key to get value ";
+                    std::cin >> keyToGet;
+                    int returnValue = hashMapDH.get(keyToGet);
+                    if(returnValue == -1) {
+                        std::cout << "No such key in map" << std::endl;
+                    } else {
+                        std::cout << "Found value: " << returnValue << std::endl;
+                    }
+                    printBasicHashMapMenu();
+                    break;
+                }
+                    
+                case 5: {
+                    exit(1);
+                    break;
+                }
+                    
+                default: {
+                    printBasicHashMapMenu();
+                    break;
+                }
+            }
+            
+        } while (1);
+    }
+    
+    void hashMapLMenu(HashMapL<K,V> hashMapL) {
+        std::cout << "Filling half of the hash map with random values..." << std::endl;
+        int mapCapacity = hashMapL.getCapacity();
+        List<int> insertedValues;
+        List<int> insertedKeys;
+        
+        for(int i=0; i<mapCapacity/2; i++) {
+            int key, value;
+            do {
+                key = rand() % mapCapacity*2;
+            } while(insertedKeys.isPresent(key));
+            do {
+                value = rand() % mapCapacity*2;
+            } while(insertedValues.isPresent(value));
+            std::cout << "Inserting (" << key << "," << value << ") pair..." << std::endl;
+            hashMapL.put(key, value);
+            
+            insertedKeys.pushBack(key);
+            insertedValues.pushBack(value);
+        }
+        std::cout << " --------------------------- " << std::endl;
+        int choice = 0;
+        printBasicHashMapMenu();
+        do {
+            std::cin >> choice;
+            switch(choice) {
+                case 1:
+                    hashMapL.print();
+                    printBasicHashMapMenu();
+                    break;
+                case 2:
+                    int key, value;
+                    std::cout << "Enter key: ";
+                    std::cin >> key;
+                    std::cout << "Enter value: ";
+                    std::cin >> value;
+                    hashMapL.put(key, value);
+                    printBasicHashMapMenu();
+                    break;
+                    
+                case 3:
+                    int keyToRemove;
+                    std::cout << "Insert key to remove: ";
+                    std::cin >> keyToRemove;
+                    if(hashMapL.get(keyToRemove) == -1) {
+                        std::cout << "No such key in map" << std::endl;
+                    } else {
+                        hashMapL.remove(keyToRemove);
+                        std::cout << "Removed" << std::endl;
+                    }
+                    printBasicHashMapMenu();
+                    break;
+                    
+                case 4: {
+                    int keyToGet;
+                    std::cout << "Enter key to get value ";
+                    std::cin >> keyToGet;
+                    int returnValue = hashMapL.get(keyToGet);
+                    if(returnValue == -1) {
+                        std::cout << "No such key in map" << std::endl;
+                    } else {
+                        std::cout << "Found value: " << returnValue << std::endl;
+                    }
+                    printBasicHashMapMenu();
+                    break;
+                }
+                    
+                case 5: {
+                    exit(1);
+                    break;
+                }
+                    
+                default: {
+                    printBasicHashMapMenu();
+                    break;
+                }
+            }
+            
+        } while (1);
+    }
+    
+    void hashMapLPMenu(HashMapLP<K,V> hashMapLP) {
+        std::cout << "Filling half of the hash map with random values..." << std::endl;
+        int mapCapacity = hashMapLP.getCapacity();
+        int insertedValues[mapCapacity];
+        int insertedKeys[mapCapacity];
+
+        for(int i=0; i<mapCapacity/2; i++) {
+            insertedKeys[i] = -1;
+            insertedValues[i] = -1;
+        }
+
+        for(int i=0; i<mapCapacity/2; i++) {
+            int key, value;
+            do {
+                key = rand() % mapCapacity;
+            } while(insertedKeys[key] != -1);
+            do {
+                value = rand() % mapCapacity;
+            } while(insertedValues[value] != -1);
+            std::cout << "Inserting (" << key << "," << value << ") pair..." << std::endl;
+            hashMapLP.put(key, value);
+
+            insertedKeys[key] = 1;
+            insertedValues[value] = 1;
+        }
+        std::cout << " --------------------------- " << std::endl;
+        int choice = 0;
+        printBasicHashMapMenu();
+        do {
+            std::cin >> choice;
+            switch(choice) {
+                case 1:
+                    hashMapLP.print();
+                    printBasicHashMapMenu();
+                    break;
+                case 2:
+                    int key, value;
+                    std::cout << "Enter key: ";
+                    std::cin >> key;
+                    std::cout << "Enter value: ";
+                    std::cin >> value;
+                    hashMapLP.put(key, value);
+                    printBasicHashMapMenu();
+                    break;
+                    
+                case 3:
+                    int keyToRemove;
+                    std::cout << "Insert key to remove: ";
+                    std::cin >> keyToRemove;
+                    if(hashMapLP.get(keyToRemove) == -1) {
+                        std::cout << "No such key in map" << std::endl;
+                    } else {
+                        hashMapLP.remove(keyToRemove);
+                        std::cout << "Removed" << std::endl;
+                    }
+                    printBasicHashMapMenu();
+                    break;
+                    
+                case 4: {
+                    int keyToGet;
+                    std::cout << "Enter key to get value ";
+                    std::cin >> keyToGet;
+                    int returnValue = hashMapLP.get(keyToGet);
+                    if(returnValue == -1) {
+                        std::cout << "No such key in map" << std::endl;
+                    } else {
+                        std::cout << "Found value: " << returnValue << std::endl;
+                    }
+                    printBasicHashMapMenu();
+                    break;
+                }
+                    
+                case 5: {
+                    exit(1);
+                    break;
+                }
+                    
+                default: {
+                    printBasicHashMapMenu();
+                    break;
+                }
+            }
+            
+        } while (1);
+    }
+    
+    void printBasicHashMapMenu() {
+        std::cout << "What you want to do?" << std::endl;
+        std::cout << "1 - print (key, value) pairs" << std::endl;
+        std::cout << "2 - insert pair to map" << std::endl;
+        std::cout << "3 - remove pair with given key" << std::endl;
+        std::cout << "4 - get value from given key" << std::endl;
+        std::cout << "5 - exit" << std::endl;
     }
     
     void generateRandomGraphData(int numberOfVertices, int numberOfEdges, std::string fileName) {
@@ -279,8 +598,10 @@ class Menu {
         std::cout << "What you want to do?" << std::endl;
         std::cout << "1 - test graph AL" << std::endl;
         std::cout << "2 - test graph AM" << std::endl;
-        std::cout << "3 - test hash map" << std::endl;
-        std::cout << "4 - exit" << std::endl;
+        std::cout << "3 - test hash map with linear probing" << std::endl;
+        std::cout << "4 - test hash map with double hashing" << std::endl;
+        std::cout << "5 - test hash map with linking" << std::endl;
+        std::cout << "6 - exit" << std::endl;
     }
     
 public:
@@ -299,9 +620,15 @@ public:
                 testGraphAM();
                 break;
             case 3:
-                exit(1);
+                testHashMapLP();
                 break;
             case 4:
+                testHashMapDH();
+                break;
+            case 5:
+                testHashMapL();
+                break;
+            case 6:
                 exit(1);
             default:
                 break;
